@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiger Reserve Basemap</title>
+</head>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.2.0/leaflet.css"/>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css" rel='stylesheet'/>
+    <!-- Javascript Libraries -->
+    <script src="http://cdn.leafletjs.com/leaflet/v1.2.0/leaflet.js"></script>
+    <!-- mapbox gl js -->
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js"></script>
+    <!-- leaflet mapbox js -->
+    <script src="http://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+<style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+<body>
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+<div id='map'></div>
+
+<script>
+    var map = L.map('map').setView([15.4189718, 99.213145], 9);
+
+    mapbox_token = 'pk.eyJ1Ijoiem9rY2hveSIsImEiOiJjajh3NmFoZG8xbTBrMnFwMGxzMWZwbWdvIn0.xaSQIBAcgAX2n5TE6MxqFA';
+
+    var gl = L.mapboxGL({
+        accessToken: mapbox_token,
+        style: 'Assets/style.json',
+        attribution: 'Created By <a href="https://github.com/zochg">Grant Zoch</a> based on the <a href="Assets/license.txt">Mapbox basic style</a>'
+    }).addTo(map);
+    L.control.fullscreen().addTo(map);
+</script>
+
+
+</body>
+</html>
